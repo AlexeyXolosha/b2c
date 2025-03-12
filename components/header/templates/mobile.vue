@@ -1,10 +1,7 @@
 <template>
-  <NuxtLayout name="main">
-    <div>
-    Привет
-    </div>
-  </NuxtLayout>
-
+  <div>
+    Мобилка
+  </div>
 </template>
 
 <script setup>
