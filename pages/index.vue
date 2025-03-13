@@ -1,7 +1,6 @@
 <template>
   <NuxtLayout name="main">
     <div>
-    Привет
     </div>
   </NuxtLayout>
 
