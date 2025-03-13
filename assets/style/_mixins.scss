@@ -1,0 +1,24 @@
+@use "vars" as *;
+
+@mixin flex-center{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-main($height){
+  @include flex-center;
+
+  border: none;
+  background: $yellow;
+  border-radius: $border-radius;
+  height: $height;
+  padding: 12px 20px;
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $black;
+}
+

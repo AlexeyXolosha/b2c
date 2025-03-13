@@ -11,15 +11,18 @@
               fill="#0E6CDD"/>
         </svg>
         <div class="header__logo-name">
-          itl.b2c<br>
-          Готовый интернет-магазин
+          <p>itl.b2c</p>
+          <span>Готовый интернет-магазин</span>
         </div>
       </a>
       <div class="header__center">
-        <button class="button__header button">Каталог товаров</button>
-        <div class="header__search">
-          <input type="text" class="input__search input" placeholder="Искать товар со скидками до 50% ">
-        </div>
+        <button class="header__button">
+          <i class="fa-regular fa-bars"></i>
+          Каталог товаров
+        </button>
+        <form class="header__search">
+          <input type="text" class="header__input" placeholder="Искать товар со скидками до 50% ">
+        </form>
       </div>
       <div class="header__actions">
         <div class="header__login">
@@ -44,7 +47,133 @@
 </script>
 
 <style lang="scss" scoped>
-i{
+.header {
+
+  &__container {
+    padding: 32px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    text-decoration: none;
+
+    &-name {
+      margin-top: 8px;
+
+      p {
+        color: $black;
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        color: $black;
+      }
+    }
+
+    svg {
+      color: $blue;
+    }
+  }
+
+  &__center {
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
+
+    flex: 1;
+    margin: 0 24px 0 32px;
+  }
+
+  &__button {
+    @include button-main($button-height);
+    min-width: 181px;
+    width: 181px;
+
+    i {
+      color: $black;
+      margin-right: 10px;
+    }
+  }
+
+  &__search {
+    width: 100%;
+  }
+
+  &__input {
+    height: $button-height;
+    border-radius: $border-radius;
+    border: 2px solid $blue-30;
+    padding: 0 20px;
+    color: $blue-dark;
+    width: 100%;
+
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $blue-search;
+      opacity: 0.7;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__login {
+    @include flex-center;
+    text-decoration: none;
+    cursor: pointer;
+
+    span {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+
+  &__favourites {
+    @include flex-center;
+    text-decoration: none;
+
+    span {
+      font-size: 16px;
+      font-weight: 400;
+      color: $black;
+
+    }
+  }
+
+  &__cart {
+    @include flex-center;
+    text-decoration: none;
+
+    span {
+      font-size: 16px;
+      font-weight: 400;
+      color: $black;
+
+    }
+  }
+
+}
+
+i {
   color: $blue;
+  margin-right: 16px;
 }
 </style>

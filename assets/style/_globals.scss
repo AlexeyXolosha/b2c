@@ -1,5 +1,8 @@
+@use "vars" as *;
+
 $font-family: Circe;
 
 body{
   font-family: $font-family;
+  color: $black;
 }
