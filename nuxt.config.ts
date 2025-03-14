@@ -20,10 +20,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      API_URL: "https://api.b2c.itl.digital/",
+      API_URL: "https://api.b2c.itl.digital",
     }
   },
-
-
 })
 
