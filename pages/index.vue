@@ -1,6 +1,7 @@
 <template>
   <NuxtLayout name="main">
     <div>
+      <modal-catalog-desktop></modal-catalog-desktop>
     </div>
   </NuxtLayout>
 
