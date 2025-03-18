@@ -52,6 +52,9 @@
 </template>
 
 <script setup>
+import {useModalsDispatcher} from "~/store/modal-controller.js";
+const modals = useModalsDispatcher()
+
 const props = defineProps({
   props: Object,
 })

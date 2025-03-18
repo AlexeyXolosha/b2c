@@ -1,5 +1,5 @@
 <template>
-  <header-component></header-component>
+  <header-component namespace="header"></header-component>
   <slot></slot>
 </template>
 

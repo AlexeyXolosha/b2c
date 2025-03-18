@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const targetUrl = `${config.public.API_URL}/${path}?${new URLSearchParams(query as any)}`;
 
-    console.log("🔗 Запрос к API:", targetUrl); // 👉 ЛОГ URL запроса
+   // console.log("🔗 Запрос к API:", targetUrl); // 👉 ЛОГ URL запроса
 
 
     try {
@@ -20,10 +20,10 @@ export default defineEventHandler(async (event) => {
             }
         });
 
-        console.log("✅ Ответ от API:", response); // 👉 ЛОГ ответа
+        //console.log("✅ Ответ от API:", response); // 👉 ЛОГ ответа
 
         return response;
     } catch (error) {
-        console.error("Ошибка при запросе к API:", error);
+      //  console.error("Ошибка при запросе к API:", error);
     }
 });

@@ -1,15 +1,17 @@
 <script setup>
-import { useDeviceController } from '~/store/device-controller.js';
-import mobile from './templates/mobile.vue';
-import desktop from './templates/desktop.vue';
+import {useLoaderComponent} from "~/composables/useLoaderComponent.js";
 import headerApi from "~/services/header/header.api.js";
 
-const deviceController = useDeviceController();
-
-const { data: main_menu, pending, error } = await headerApi.GET_MENU();
+const {data: main_menu, pending, error} = await headerApi.GET_MENU();
 const data = computed(() => main_menu.value.data);
+
+const props = defineProps({
+  namespace: String, group: String
+});
+
+const loaderComponent = useLoaderComponent(props)
 </script>
 
 <template>
-  <component :is="deviceController.isMobile ? mobile : desktop" :props="data"></component>
+  <component :is="loaderComponent" :props="data"></component>
 </template>
