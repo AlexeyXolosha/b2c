@@ -1,7 +1,8 @@
 // ~/composables/useFetchHook.js
-export function useFetchHook(url, options = {}, key = null) {
+export function useFetchHook(url, options = {}, key = null, optionsForAsyncData = {}) {
     return useAsyncData(
         key || url,
-        () => $fetch(url, options)
+        () => $fetch(url, options),
+        optionsForAsyncData
     );
 }

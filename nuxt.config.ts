@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', 'nuxt-swiper'],
   css: ['~/assets/style/main.scss', '~/assets/fonts/font-awesome/css/all.css'],
 
   vite: {
@@ -24,4 +24,3 @@ export default defineNuxtConfig({
     }
   },
 })
-

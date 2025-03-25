@@ -6,3 +6,30 @@ body{
   font-family: $font-family;
   color: $black;
 }
+
+.container{
+  max-width: 1840px;
+  margin-inline: auto;
+  padding-inline: 58px;
+}
+
+.section-main{
+  padding: 28px 0
+}
+
+.swiper-pagination{
+  text-align: left !important;
+  bottom: 24px !important;
+  left: 70px !important;
+}
+
+.swiper-pagination-bullet{
+  width: 4px !important;
+  height: 4px !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+  width: 16px !important;
+  height: 4px !important;
+  border-radius: 4px !important;
+}

@@ -17,7 +17,7 @@ export function useLoaderComponent({ namespace, group }) {
         if (matchedKey) {
             return defineAsyncComponent(components[matchedKey]);
         } else {
-            console.error(`Компонент ${filePath} не найден`);
+         //   console.error(`Компонент ${filePath} не найден`);
             return null;
         }
     });

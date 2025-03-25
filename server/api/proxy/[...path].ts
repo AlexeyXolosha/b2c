@@ -1,29 +1,39 @@
+import { defineEventHandler, getQuery, getRequestHeader, createError } from 'h3';
+
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig();
     const pathParam = event.context.params?.path;
 
-    // Преобразуем path в строку (если массив — соединяем, если строка — используем как есть)
-    const path = Array.isArray(pathParam) ? pathParam.join('/') : pathParam || '';
+    // Обрабатываем path
+    const path = [pathParam].flat().join('/');
 
+    // Получаем query параметры
     const query = getQuery(event);
-    const targetUrl = `${config.public.API_URL}/${path}?${new URLSearchParams(query as any)}`;
+    const queryString = new URLSearchParams(query as any).toString();
+    const targetUrl = `${config.public.API_URL}/${path}${queryString ? '?' + queryString : ''}`;
 
-   // console.log("🔗 Запрос к API:", targetUrl); // 👉 ЛОГ URL запроса
-
+    // console.log("🔗 Запрос к API:", targetUrl);
 
     try {
-        const response = await $fetch(targetUrl, {
-            method: 'GET',
-            headers: {
-                'Authorization': getRequestHeader(event, 'Authorization') || '',
-                'Content-Type': 'application/json'
-            }
-        });
+        const headers = {
+            'Content-Type': 'application/json',
+            ...(getRequestHeader(event, 'Authorization') && {
+                Authorization: getRequestHeader(event, 'Authorization')
+            })
+        };
 
-        //console.log("✅ Ответ от API:", response); // 👉 ЛОГ ответа
+        const response = await $fetch(targetUrl, { method: 'GET', headers });
+
+     //   console.log("✅ Ответ от API:", response);
 
         return response;
     } catch (error) {
-      //  console.error("Ошибка при запросе к API:", error);
+        console.error("❌ Ошибка при запросе к API:", {
+            message: error.message,
+            stack: error.stack,
+            url: targetUrl
+        });
+
+        return createError({ statusCode: 500, statusMessage: "Ошибка сервера" });
     }
 });
