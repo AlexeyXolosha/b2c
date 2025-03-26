@@ -1,4 +1,4 @@
-import { defineEventHandler, getQuery, getRequestHeader, createError } from 'h3';
+import {defineEventHandler, getQuery, getRequestHeader, createError} from 'h3';
 
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig();
@@ -22,18 +22,23 @@ export default defineEventHandler(async (event) => {
             })
         };
 
-        const response = await $fetch(targetUrl, { method: 'GET', headers });
+        const response = await $fetch(targetUrl, {method: 'GET', headers});
 
-     //   console.log("✅ Ответ от API:", response);
+        // console.log("✅ Ответ от API:", response);
+        // console.log("📋 Заголовки запроса:", headers);
 
         return response;
-    } catch (error) {
-        console.error("❌ Ошибка при запросе к API:", {
-            message: error.message,
-            stack: error.stack,
-            url: targetUrl
+    } catch (error: any) {
+        console.error("❌ Ошибка при запросе к API:", error);
+
+        console.error("📌 Доп. информация:", {
+            message: error?.message || "Неизвестная ошибка",
+            stack: error?.stack || "Нет stack-trace",
+            url: targetUrl,
+            status: error?.status || "Неизвестный статус",
+            response: error?.response || "Нет ответа"
         });
 
-        return createError({ statusCode: 500, statusMessage: "Ошибка сервера" });
+        return createError({statusCode: 500, statusMessage: "Ошибка сервера"});
     }
 });
