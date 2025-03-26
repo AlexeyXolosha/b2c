@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     // Получаем query параметры
     const query = getQuery(event);
     const queryString = new URLSearchParams(query as any).toString();
-    const targetUrl = `${config.public.API_URL}/${path}${queryString ? '?' + queryString : ''}`;
+    const targetUrl = `${config.public.API_URL}/${path}/${queryString ? '?' + queryString : ''}`;
 
     // console.log("🔗 Запрос к API:", targetUrl);
 

@@ -1,11 +1,16 @@
 <template>
   <section class="section-main">
     <div class="container">
+      <div class="tabs">
+        <h2 class="tabs__title">{{ data?.meta?.title }}</h2>
+        <ul class="tabs__list">
+          <li class="tabs__item" v-for="item in data?.data ?? []" :key="item.id" @click="handleClick(item)">
+            {{ item.attributes.name }}
+          </li>
+        </ul>
+      </div>
       <Swiper :slides-per-view="6"
               :space-between="24">
-        <SwiperSlide>
-          <product-card-component namespace="product-card"></product-card-component>
-        </SwiperSlide>
         <SwiperSlide>
           <product-card-component namespace="product-card"></product-card-component>
         </SwiperSlide>
@@ -16,12 +21,39 @@
 
 <script setup>
 import {Swiper, SwiperSlide} from 'swiper/vue';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
+import listApi from "~/services/list/list.api.js";
+
+const itemLink = ref('');
+const itemData = ref('');
+
+const {data} = await listApi.GET_LIST_HIT();
+
+
+const handleClick = async (clickedItem) => {
+  const itemLink = clickedItem.links.self;
+
+  // Добавляем `api/proxy` перед ссылкой
+  const targetUrl = `/api/proxy${itemLink}`;
+
+  try {
+    // Используем $fetch с целевым URL
+    itemData.value = await $fetch(targetUrl);
+    console.log(itemData);
+  } catch (error) {
+    console.error('Ошибка при загрузке данных:', error);
+  }
+};
+
 
 </script>
 
+<style src="./scss/style.scss" lang="scss" scoped></style>
+
 <style lang="scss" scoped>
 
+.tabs {
+  margin-bottom: 40px;
+}
 </style>
