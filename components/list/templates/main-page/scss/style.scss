@@ -25,5 +25,10 @@
     border: 1px solid rgba(14, 108, 221, 0.40);
 
     cursor: pointer;
+    transition-duration: 0.3s;
+
+    &--active{
+      border-color: rgba(14, 108, 221, 1);
+    }
   }
 }

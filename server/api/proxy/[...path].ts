@@ -12,8 +12,6 @@ export default defineEventHandler(async (event) => {
     const queryString = new URLSearchParams(query as any).toString();
     const targetUrl = `${config.public.API_URL}/${path}/${queryString ? '?' + queryString : ''}`;
 
-    // console.log("🔗 Запрос к API:", targetUrl);
-
     try {
         const headers = {
             'Content-Type': 'application/json',
@@ -23,9 +21,6 @@ export default defineEventHandler(async (event) => {
         };
 
         const response = await $fetch(targetUrl, {method: 'GET', headers});
-
-        // console.log("✅ Ответ от API:", response);
-        // console.log("📋 Заголовки запроса:", headers);
 
         return response;
     } catch (error: any) {
@@ -39,6 +34,6 @@ export default defineEventHandler(async (event) => {
             response: error?.response || "Нет ответа"
         });
 
-        return createError({statusCode: 500, statusMessage: "Ошибка сервера"});
+        return createError({statusCode: 500, message: "Ошибка сервера"});
     }
 });
