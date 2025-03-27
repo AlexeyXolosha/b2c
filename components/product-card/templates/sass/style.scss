@@ -2,6 +2,11 @@
   border: 1px solid rgba($blue, 0.2);
   border-radius: $border-radius;
   padding: 32px 32px 36px 32px;
+  transition-duration: 0.2s;
+
+  &:hover{
+    border: 1px solid rgba($blue, 0.5);
+  }
 
   &__image{
     width: 100%;
@@ -49,6 +54,10 @@
 
   &__count{
     margin-bottom: 24px;
+
+    span{
+      color: $blue;
+    }
   }
 
   &__price{

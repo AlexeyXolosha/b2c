@@ -28,7 +28,11 @@
     transition-duration: 0.3s;
 
     &--active{
-      border-color: rgba(14, 108, 221, 1);
+      border-color: rgba(14, 108, 221, 0.8);
+    }
+
+    &:hover{
+      border: 1px solid rgba(14, 108, 221, 0.70);
     }
   }
 }

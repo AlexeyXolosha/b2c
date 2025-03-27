@@ -13,7 +13,8 @@
         <span></span>
       </div>
       <a :href="data?.links.self" class="product-card__title">{{data?.attributes?.name}}</a>
-      <div class="product-card__count">В наличии в <span> 5 магазинах </span></div>
+      <div class="product-card__count" v-if="storeCount > 0">В наличии в <span> {{storeCount}} магазинах </span></div>
+      <div class="product-card__count" v-else>Нет в наличии</div>
       <div class="product-card__price">
         <h4>{{data?.attributes?.product.price.valueFormatted}}</h4>
       </div>
@@ -36,6 +37,10 @@ const config = useRuntimeConfig()
 const apiURL = config.public.API_URL;
 
 const { data } = defineProps(["data"]);
+
+const storeCount = computed(() => {
+  return Object.keys(data?.attributes?.product?.stores?.items ?? {}).length;
+});
 </script>
 
 <style src="./sass/style.scss" lang="scss" scoped></style>
