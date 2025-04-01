@@ -229,6 +229,15 @@ body {
 .section-main {
   padding: 68px 0;
 }
+.section-main__content {
+  padding-top: 40px;
+}
+.section-main__title {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 40px;
+  color: #333;
+}
 
 .swiper-pagination {
   text-align: left !important;

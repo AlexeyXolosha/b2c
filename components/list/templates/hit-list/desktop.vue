@@ -4,7 +4,8 @@
       <div class="tabs">
         <h2 class="tabs__title">{{ data?.meta?.title }}</h2>
         <ul class="tabs__list">
-          <li class="tabs__item" v-for="item in data?.data ?? []" :key="item.id" @click="handleClick(item)" :class="{ 'tabs__item--active': item.id == activeTab}">
+          <li class="tabs__item" v-for="item in data?.data ?? []" :key="item.id" @click="handleClick(item)"
+              :class="{ 'tabs__item--active': item.id == activeTab}">
             {{ item.attributes.name }}
           </li>
         </ul>
@@ -34,12 +35,11 @@ const handleClick = async (clickedItem) => {
   const itemLink = clickedItem.links.self;
   activeTab.value = clickedItem.id;
 
-
   const targetUrl = `/api/proxy${itemLink}`;
 
   try {
     itemData.value = await $fetch(targetUrl);
-    console.log(itemData.value);
+    // console.log(itemData.value);
   } catch (error) {
     console.error('Ошибка при загрузке данных:', error);
   }
@@ -54,7 +54,7 @@ watch(
         handleClick(firstItem);
       }
     },
-    { immediate: true }
+    {immediate: true}
 );
 </script>
 

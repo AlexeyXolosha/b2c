@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
             })
         };
 
-        const response = await $fetch(targetUrl, {method: 'GET', headers});
+        const response = await $fetch(targetUrl, {method: 'GET', headers})
 
         return response;
     } catch (error: any) {
