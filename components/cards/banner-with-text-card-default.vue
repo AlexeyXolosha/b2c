@@ -93,6 +93,4 @@ const {data} = defineProps(["data"]);
     }
   }
 }
-
-
 </style>
