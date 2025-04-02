@@ -3,6 +3,7 @@
     <slider-component namespace="slider" group="main"></slider-component>
     <list-component namespace="list" group="hit-list"></list-component>
     <list-component namespace="list" group="popular-categories"></list-component>
+    <list-component namespace="list" group="banner-with-list"></list-component>
   </NuxtLayout>
 </template>
 

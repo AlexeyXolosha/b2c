@@ -1,5 +1,5 @@
 <template>
-  <a :href="data?.links.self">
+  <a class="categories-card__link" :href="data?.links.self">
     <div class="categories-card__inner">
       <img :src="apiURL + data?.attributes.images.preview" alt="" class="categories-card__image">
     </div>
@@ -21,6 +21,20 @@ a{
 
 .categories-card {
 
+  &__link{
+    display: inline-flex;
+    flex-direction: column;
+    &:hover{
+      .categories-card__image{
+        transform: scale(1.1);
+      }
+
+      .categories-card__name {
+        color: $blue;
+      }
+    }
+  }
+
   &__inner {
     background-color: rgba($blue, 0.05);
     padding: 32px;
@@ -37,13 +51,18 @@ a{
     max-width: 120px;
     max-height: 120px;
     object-fit: contain;
+
+    transition-duration: 0.2s;
   }
 
   &__name {
     text-align: center;
-    text-decoration: none;
     color: $black;
   }
+
+
+
+
 
 }
 </style>
