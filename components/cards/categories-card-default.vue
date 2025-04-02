@@ -24,6 +24,7 @@ a{
   &__link{
     display: inline-flex;
     flex-direction: column;
+    width: 100%;
     &:hover{
       .categories-card__image{
         transform: scale(1.1);
@@ -37,6 +38,7 @@ a{
 
   &__inner {
     background-color: rgba($blue, 0.05);
+    border-radius: 4px;
     padding: 32px;
 
     display: flex;
