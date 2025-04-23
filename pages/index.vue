@@ -7,6 +7,8 @@
     <list-component namespace="list" group="popular-brands"></list-component>
     <list-component namespace="list" group="hit-stock"></list-component>
     <banners-banner-main-page></banners-banner-main-page>
+    <list-component namespace="list" group="event-list"></list-component>
+    <list-component namespace="list" group="recommended-list"></list-component>
   </NuxtLayout>
 </template>
 

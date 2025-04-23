@@ -45,7 +45,6 @@ const {data} = await bannersApi.GET_BANNERS_WIDE()
       top: 0;
       left: -100px;
       background-color: $yellow-dark;
-
     }
   }
 
@@ -54,7 +53,7 @@ const {data} = await bannersApi.GET_BANNERS_WIDE()
     font-weight: 400;
     line-height: 40px;
     color: $black;
-    padding: 70px 70px 0;
+    padding: 0 70px 0;
   }
 
   &__image{
@@ -63,7 +62,6 @@ const {data} = await bannersApi.GET_BANNERS_WIDE()
     object-fit: contain;
     z-index: -2;
     border-radius: 4px;
-
   }
 }
 </style>
