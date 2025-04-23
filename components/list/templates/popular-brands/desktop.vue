@@ -1,12 +1,7 @@
 <template>
   <section class="section__main">
     <div class="container">
-      <div class="section-main__header">
-        <div class="section-main__title">{{ data?.meta?.title }}</div>
-        <a href="">
-          <i class="fa-regular fa-angle-right"></i>
-        </a>
-      </div>
+      <shared-title :data="data"></shared-title>
       <div class="section-main__content">
         <div class="popular-brands">
           <ul class="popular-brands__list">
@@ -18,7 +13,6 @@
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 </template>
@@ -32,32 +26,9 @@ const {data} = await listApi.GET_LIST_BRANDS()
 </script>
 
 <style lang="scss" scoped>
-.section-main__header{
-  display: flex;
-  align-items: center;
-  column-gap: 16px;
-  a{
-    text-decoration: none;
-    color: $black;
-  }
-  i{
-    background-color: rgba($blue, 0.05);
-    padding: 9px 6px;
-    border-radius: 4px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-
-  }
-}
 
 .popular-brands {
-
   &__list {
     display: flex;
     align-items: center;

@@ -1,7 +1,7 @@
 <template>
   <div class="section-main">
     <div class="container">
-      <h2 class="section-main__title">{{data?.meta?.title}}</h2>
+      <shared-title :data="data"></shared-title>
       <div class="event-list">
         <ul class="list">
           <li class="item" v-for="item in data?.data.slice(0, 4)">

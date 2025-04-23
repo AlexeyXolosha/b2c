@@ -30,6 +30,6 @@ export default {
     },
 
     async GET_LIST_BLOG() {
-        return useFetchHook('/api/proxy/include/mainpage/blog/', {method: "GET"}, "LIST_RECOMMEND", {server: false})
+        return useFetchHook('/api/proxy/include/mainpage/blog/', {method: "GET"}, "LIST_BLOG", {server: false})
     }
 }

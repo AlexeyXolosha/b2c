@@ -1,7 +1,7 @@
 <template>
   <div class="product-card">
-    <a :href="data?.links.self" class="product-card__preview">
-      <img :src="apiURL + data?.attributes.image" alt="" class="product-card__image">
+    <a :href="data?.links?.self" class="product-card__preview">
+      <img :src="apiURL + data?.attributes?.image" alt="" class="product-card__image">
     </a>
     <div class="product-card__detail">
       <div class="product-card__stars">
@@ -12,7 +12,7 @@
         </svg>
         <span></span>
       </div>
-      <a :href="data?.links.self" class="product-card__title">{{data?.attributes?.name}}</a>
+      <a :href="data?.links?.self" class="product-card__title">{{data?.attributes?.name}}</a>
       <div class="product-card__count" v-if="storeCount > 0">В наличии в <span> {{storeCount}} магазинах </span></div>
       <div class="product-card__count" v-else>Нет в наличии</div>
       <div class="product-card__price">

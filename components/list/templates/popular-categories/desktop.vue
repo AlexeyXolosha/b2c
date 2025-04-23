@@ -20,6 +20,8 @@ const {data} = await listApi.GET_LIST_POPULAR_CATEGORY()
 </script>
 
 <style lang="scss" scoped>
+
+
   .category-list{
     display: flex;
     gap: 24px;
