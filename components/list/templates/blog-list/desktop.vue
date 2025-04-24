@@ -26,13 +26,11 @@ const {data} = await listApi.GET_LIST_BLOG();
 
   .list{
     display: flex;
-    align-items: center;
     gap: 24px;
   }
 
   .item{
     max-width: 264px;
-    height: 192px;
   }
 }
 
