@@ -9,6 +9,14 @@ const props = defineProps({
 });
 
 const loaderComponent = useLoaderComponent(props)
+
+watch(
+    () => modals.activeModal,
+    (newVal) => {
+      if (typeof document === 'undefined') return;
+      document.body.style.overflow = newVal ? 'hidden' : '';
+    }
+);
 </script>
 
 <template>

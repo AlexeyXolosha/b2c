@@ -17,8 +17,9 @@
           </div>
         </a>
         <div class="header__center">
-          <button class="header__button">
-            <i class="fa-regular fa-bars"></i>
+          <button class="header__button" @click="toggleCatalogModal">
+            <i v-if="isCatalogOpen" class="fa-solid fa-xmark"></i>
+            <i v-else class="fa-regular fa-bars"></i>
             Каталог товаров
           </button>
           <form class="header__search">
@@ -42,8 +43,8 @@
       </div>
       <ul class="header__list">
         <li class="header__item" v-for="item in data.slice(0, 12)">
-          <a :href="item.links.self" class="header__link" >
-            {{item?.attributes?.name}}
+          <a :href="item.links.self" class="header__link">
+            {{ item?.attributes?.name }}
           </a>
         </li>
       </ul>
@@ -52,6 +53,21 @@
 </template>
 
 <script setup>
+import {useModalsDispatcher} from '@/store/modal-controller.js';
+
+const modals = useModalsDispatcher();
+
+const isCatalogOpen = computed(() => modals.activeModal === 'catalog');
+
+const toggleCatalogModal = () => {
+  if (isCatalogOpen.value) {
+    modals.close();
+  } else {
+    modals.open('catalog');
+  }
+};
+
+
 const props = defineProps({
   props: Object,
 })

@@ -53,6 +53,12 @@
 
     .subsection {
       padding: 32px 0;
+
+      .list {
+        .item a:hover {
+          color: $blue;
+        }
+      }
     }
 
     .item a {

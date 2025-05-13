@@ -1,6 +1,5 @@
 <template>
   <NuxtLayout name="main">
-    <modal-templates-catalog-desktop></modal-templates-catalog-desktop>
     <slider-component namespace="slider" group="main"></slider-component>
     <list-component namespace="list" group="hit-list"></list-component>
     <list-component namespace="list" group="popular-categories"></list-component>
