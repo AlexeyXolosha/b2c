@@ -1,4 +1,4 @@
-import { useDeviceController } from '~/store/device-controller';
+import {useDeviceController} from '~/store/device-controller';
 
 export default defineNuxtPlugin((nuxtApp) => {
     const deviceController = useDeviceController();

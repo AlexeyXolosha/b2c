@@ -10,6 +10,7 @@
     <list-component namespace="list" group="event-list"></list-component>
     <list-component namespace="list" group="recommended-list"></list-component>
     <list-component namespace="list" group="blog-list"></list-component>
+    <company-components namespace="company"></company-components>
   </NuxtLayout>
 </template>
 
