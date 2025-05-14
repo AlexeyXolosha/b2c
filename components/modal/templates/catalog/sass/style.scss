@@ -25,6 +25,9 @@
         position: relative;
 
         &--active {
+          background-color: rgba($blue, 0.1);
+          border-right: 1px solid $blue;
+
           &:before {
             position: absolute;
             content: '';
@@ -40,9 +43,6 @@
 
         @media (hover: hover) {
           &:hover {
-            background-color: rgba($blue, 0.1);
-            border-right: 1px solid $blue;
-
             a {
               color: $blue;
             }

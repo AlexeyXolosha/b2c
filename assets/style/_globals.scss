@@ -26,18 +26,24 @@ body{
 }
 
 .swiper-pagination{
-  text-align: left !important;
   bottom: 24px !important;
   left: 70px !important;
+  width: auto !important;
 }
 
 .swiper-pagination-bullet{
   width: 4px !important;
   height: 4px !important;
+  overflow: hidden;
+  transition: width 0.2s ease;
+  border-radius: 50% !important;
+  background-color: #0e6cdd;
 }
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active{
   width: 16px !important;
   height: 4px !important;
+  overflow: hidden;
   border-radius: 4px !important;
+  margin: 0 !important;
 }

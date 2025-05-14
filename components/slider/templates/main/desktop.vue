@@ -47,3 +47,9 @@ const data = props.props
 </script>
 
 <style src="./sass/style.scss" lang="scss" scoped></style>
+
+<style>
+.banner-main .swiper-slide{
+  overflow: hidden;
+}
+</style>
