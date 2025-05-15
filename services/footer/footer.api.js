@@ -14,10 +14,10 @@ export default {
     },
 
     async GET_FOOTER_TELEPHONE() {
-        return useFetchHook('/include/static-info/phone/', {method: "GET"}, "FOOTER_TELEPHONE", {server: true})
+        return useFetchHook('/api/proxy/include/static-info/phone/', {method: "GET"}, "FOOTER_TELEPHONE", {server: true})
     },
 
     async GET_FOOTER_SOCIAL() {
-        return useFetchHook('/include/static-info/social-media/', {method: "GET"}, "FOOTER_SOCIAL", {server: true})
+        return useFetchHook('/api/proxy/include/static-info/social-media/', {method: "GET"}, "FOOTER_SOCIAL", {server: true})
     }
 }
